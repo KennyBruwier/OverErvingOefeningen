@@ -43,8 +43,13 @@ namespace OverErvingOefeningen
             Naam = InputStr("Naam: ");
             RekeningNr = InputStr("Rekening nummer: ");
             this.Saldo = bedrag;
+            if (Type == TypeRekening.Creditrekening) onderNul = true;
         }
 
+        private string RekeningNrInput()
+        {
+            return "";
+        }
         public double Afhalen(double bedrag)
         {
             double bedragAfgehaald = 0;
@@ -57,22 +62,22 @@ namespace OverErvingOefeningen
 
         public double Storten(double bedrag)
         {
-            double bedragGestord = 0;
+            double bedragGestort = 0;
             if (Saldo + bedrag < 0)
-                if (onderNul) Saldo += bedragGestord = +bedrag;
+                if (onderNul) Saldo += bedragGestort = +bedrag;
                 else Msg($"{Saldo} + {bedrag} = {Saldo + bedrag} (niet toegelaten)");
-            else Saldo += bedragGestord = bedrag;
-            return bedragGestord;
+            else Saldo += bedragGestort = bedrag;
+            return bedragGestort;
         }
 
         public void Overzicht()
         {
-            Console.Write($"{Naam}\t- {Type}\t: {RekeningNr}\t\tSaldo: ");
+            Console.Write(String.Format("{0,20} - {1,-20}:{2,-30}\tSaldo: ", Naam,Type,RekeningNr,Saldo));
             if (Saldo < 0)
             {
                 ConsoleColor front = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(Saldo);
+                Console.WriteLine(String.Format("{0,-20}",Saldo));
                 Console.ForegroundColor = front;
             }
             else
@@ -135,6 +140,7 @@ namespace OverErvingOefeningen
             Naam = naam;
             RekeningNr = rekenNr;
             Type = TypeRekening.Creditrekening;
+            onderNul = true;
         }
         public CreditRekening()
         {

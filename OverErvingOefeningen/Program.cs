@@ -230,7 +230,7 @@ namespace OverErvingOefeningen
                             Console.ForegroundColor = selectionForeground;
                             Console.BackgroundColor = selectionBackground;
                         }
-                        Console.WriteLine((i + 1) + ": " + menu[i]);
+                        Console.WriteLine(string.Format("{0,5}:{1,-40}",i + 1,menu[i]));
                         Console.ResetColor();
                     }
                     switch (Console.ReadKey(true).Key)
@@ -262,24 +262,30 @@ namespace OverErvingOefeningen
                 Console.CursorVisible = true;
                 return selection;
             }
-            string InputStrFormat(string inputFormat = "", int fixedLength = 0, char charStart = 'a', char charEnd = 'z')
+            string InputStrFormat(string inputFormat = "  :    :    :", int fixedLength = 14, char charStart = '0', char charEnd = '9')
             {
-                string toReturn = "";
+                string toReturn = inputFormat;
                 bool exit = false;
                 int cursX = Console.CursorLeft;
                 int cursY = Console.CursorTop;
+                int count = 0;
+
+                foreach(char c in toReturn)
+                {
+                    if (c == ' ')
+                    {
+
+                    }
+                }
                 while ((toReturn.Length<fixedLength)&&(!exit))
                 {
+                    Console.CursorLeft = cursX;
+                    Console.CursorTop = cursY;
                     Console.WriteLine(toReturn,fixedLength);
-                    char input = Console.ReadKey().KeyChar;
+                    char input = Console.ReadKey(true).KeyChar;
                     if ((input >= charStart) && (input <= charEnd))
                     {
-                        toReturn += input;
-                        if (toReturn.Length <= inputFormat.Length)
-                        {
-                            if (inputFormat[toReturn.Length - 1] != ' ')
-                                toReturn += inputFormat[toReturn.Length - 1];
-                        }
+                        //toReturn[0] = input;
                     }
                 }
 
