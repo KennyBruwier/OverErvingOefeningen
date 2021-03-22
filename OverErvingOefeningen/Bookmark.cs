@@ -20,12 +20,20 @@ namespace OverErvingOefeningen
             Naam = "";
             URL = "";
         }
+        public override string ToString()
+        {
+            return Naam + " (" + URL + ")";
+        }
     }
     class HiddenBookmark : Bookmark
     {
         public override void OpenSite()
         {
             Process.Start(@"C:\Program Files\Mozilla Firefox\firefox.exe","-private-window "+ URL);
+        }
+        public override string ToString()
+        {
+            return base.ToString() + "\t---HIDDEN---";
         }
     }
 }

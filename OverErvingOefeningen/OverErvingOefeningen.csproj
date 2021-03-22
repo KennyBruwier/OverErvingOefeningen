@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
+    <Compile Include="Dier.cs" />
+    <Compile Include="GeometricFigure.cs" />
+    <Compile Include="mRekening.cs" />
+    <Compile Include="Pokemon.cs" />
     <Compile Include="Rekening.cs" />
     <Compile Include="Bookmark.cs" />
     <Compile Include="Patient.cs" />

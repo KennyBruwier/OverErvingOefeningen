@@ -10,7 +10,7 @@ namespace OverErvingOefeningen
     {
         static void Main(string[] args)
         {
-            Bank();
+            Dierentuin();
 
             Console.ReadLine();
 
@@ -177,7 +177,6 @@ namespace OverErvingOefeningen
                                     nieuweRekening.OpenRekening(bedrag: dBedrag);
                                     rekeningen.Add(nieuweRekening);
                                 }
-
                             }
                             break;
                         case 3: // -- verwijderen
@@ -197,6 +196,259 @@ namespace OverErvingOefeningen
                         default: exit = true; break;
                     }
                 }
+                Console.ReadKey();
+            }
+
+            // -- advanced oefeningen
+
+            void Pokemon()
+            {
+                Pokemon[] mijnPokemons = new Pokemon[10];
+
+                for (int i = 0; i < mijnPokemons.GetLength(0); i++)
+                {
+                    bool Aangemaakt = false;
+                    mijnPokemons[i] = new Pokemon();
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                mijnPokemons[i].Naam = "Bulbasaur";
+                                mijnPokemons[i].Nummer = 1;
+                                mijnPokemons[i].HP_Base = 45;
+                                mijnPokemons[i].Attack_Base = 49;
+                                mijnPokemons[i].Defense_Base = 49;
+                                mijnPokemons[i].SpecialAttack_Base = 65;
+                                mijnPokemons[i].SpecialDefense_Base = 65;
+                                mijnPokemons[i].Speed_Base = 45;
+                                Aangemaakt = true;
+                            }
+                            break;
+                        case 1:
+                            {
+                                mijnPokemons[i].Naam = "Ivysaur";
+                                mijnPokemons[i].Nummer = 2;
+                                mijnPokemons[i].HP_Base = 60;
+                                mijnPokemons[i].Attack_Base = 62;
+                                mijnPokemons[i].Defense_Base = 63;
+                                mijnPokemons[i].SpecialAttack_Base = 80;
+                                mijnPokemons[i].SpecialDefense_Base = 80;
+                                mijnPokemons[i].Speed_Base = 60;
+                                Aangemaakt = true;
+                            }
+                            break;
+                        case 2:
+                            {
+                                mijnPokemons[i].Naam = "Venusaur";
+                                mijnPokemons[i].Nummer = 3;
+                                mijnPokemons[i].HP_Base = 80;
+                                mijnPokemons[i].Attack_Base = 82;
+                                mijnPokemons[i].Defense_Base = 83;
+                                mijnPokemons[i].SpecialAttack_Base = 100;
+                                mijnPokemons[i].SpecialDefense_Base = 100;
+                                mijnPokemons[i].Speed_Base = 80;
+                                Aangemaakt = true;
+                            }
+                            break;
+                        default: break;
+                    }
+                    if (Aangemaakt)
+                    {
+                        Console.WriteLine($"Pokemon {mijnPokemons[i].Naam} aangemaakt.\nGemiddelde score: {mijnPokemons[i].Average}\nTotaal score: {mijnPokemons[i].Total}");
+                        Console.WriteLine(mijnPokemons[i].ToString());
+                    }
+                }
+
+            }
+
+            void BookMarkExtra()
+            {
+                HiddenBookmark hbm = new HiddenBookmark();
+                hbm.Naam = "Google";
+                hbm.URL = "www.google.be";
+                Bookmark bm = new Bookmark();
+                bm.Naam = "Microsoft";
+                bm.URL = "www.microsoft.com";
+
+                Console.WriteLine(hbm);
+                Console.WriteLine(bm);
+            }
+            
+            void Book()
+            {
+                Book boek = new Book();
+                boek.Title = "The Shining";
+                boek.Author = "Stephen King";
+                boek.ISBN = "11101110111";
+                boek.Price = 20;
+
+                TextBook textbook = new TextBook();
+                textbook.Title = "Mijn tekstboek";
+                textbook.Author = "Kenny Bruwier";
+                textbook.ISBN = "11101110111";
+                textbook.Price = 10;
+
+                CoffeeTableBook coffeeTableBook = new CoffeeTableBook();
+                coffeeTableBook.Title = "Mijn koffie-table-boek";
+                coffeeTableBook.Author = "Kenny Bruwier";
+                coffeeTableBook.ISBN = "11101110111";
+                coffeeTableBook.Price = 20;
+
+                Console.WriteLine(boek);
+                Console.WriteLine(textbook);
+                textbook.Price = 50;
+                Console.WriteLine(textbook);
+                Console.WriteLine(coffeeTableBook);
+                coffeeTableBook.Price = 70;
+                Console.WriteLine(coffeeTableBook);
+                Console.WriteLine("boek.Equals(textbook) = ");
+                Console.Write(boek.Equals(textbook));
+
+            }
+
+            void MoneyMoney()
+            {
+                mRekening bankRekening = new mBankRekening(500);
+                mRekening spaarRekening = new mSpaarRekening(10000);
+                mRekening proRekening = new mProRekening(10000);
+
+                Console.WriteLine($"Bank rekening\tsaldo: {bankRekening.Saldo}\trente: {bankRekening.BerekenRente()}");
+                Console.WriteLine($"Spaar rekening\tsaldo: {spaarRekening.Saldo}\trente: {spaarRekening.BerekenRente()}");
+                Console.WriteLine($"Pro rekening\tsaldo: {proRekening.Saldo}\trente: {proRekening.BerekenRente()}");
+
+            }
+
+            void GeometricFigures()
+            {
+                int hoogte = 10;
+                int breedte = 5;
+                GeometricFigure rechthoek = new Rechthoek(hoogte, breedte);
+                GeometricFigure vierkant = new Vierkant(hoogte);
+                GeometricFigure vierkant2 = new Vierkant(hoogte, breedte);
+                GeometricFigure driehoek = new Driehoek(hoogte, breedte);
+
+                Console.WriteLine($"Oppervlakte (hoogte: {hoogte},breedte: {breedte}):\n");
+                Console.WriteLine("Rechthoek: " + rechthoek.BerekenOppervlakte());
+                Console.WriteLine("Vierkant met één parameter: " + vierkant.BerekenOppervlakte());
+                Console.WriteLine("Vierkant met twee verschillende parameters: " + vierkant2.BerekenOppervlakte());
+                Console.WriteLine("Driehoek: " + driehoek.BerekenOppervlakte());
+
+            }
+
+            void Dierentuin()
+            {
+                bool exit = false;
+                string[] dierenNamen = { "Kat", "Hond", "Vis", "Koe", "q" };
+                List<Dier> dieren = new List<Dier>();
+
+                while (!exit)
+                {
+                    bool toevoegen = true;
+                    while (toevoegen)
+                    {
+                        Console.Clear();
+                        foreach (Dier dier in dieren)
+                            dier.OverZicht();
+                        Dier nieuwDier = null;
+                        Console.WriteLine("\n\nDieren toevoegen:");
+                        switch (SelectMenu(false, dierenNamen))
+                        {
+                            case 1: 
+                                nieuwDier = new Kat();
+                                break;
+                            case 2: 
+                                nieuwDier = new Hond();
+                                break;
+                            case 3: 
+                                nieuwDier = new Vis();
+                                break;
+                            case 4: 
+                                nieuwDier = new Koe();
+                                break;
+                            case 5: 
+                                toevoegen = false;
+                                break;
+                            default: exit = true; break;
+                        }
+                        if (nieuwDier != null)
+                        {
+                            nieuwDier.Naam = InputStr("Naam: ");
+                            nieuwDier.Gewicht = InputInt("Gewicht: ");
+                            dieren.Add(nieuwDier);
+                        }
+                    }
+                    bool opnieuw = true;
+                    while (opnieuw)
+                    {
+                        if (dieren != null)
+                        foreach (Dier dier in dieren)
+                            dier.OverZicht();
+                        Console.WriteLine("\n\nMenu:");
+                        switch (SelectMenu(false,"Dier verwijderen","Gemiddelde gewicht","Dier praten","Opnieuw beginnen", "Exit") )
+                        {
+                            case 1:
+                                {
+                                    bool delete = true;
+                                    while (delete)
+                                    {
+                                        List<string> dierNamen = new List<string>();
+                                        foreach (Dier dier in dieren)
+                                        {
+                                            if ((dier.Naam != "") && (dier.Naam != null))
+                                                dierNamen.Add(dier.Naam);
+                                        }
+                                        dierNamen.Add("Exit");
+                                        string dierToDelete = dierNamen[SelectMenu(true, dierNamen.ToArray()) - 1];
+                                        if (dierToDelete == "Exit") delete = false;
+                                        else
+                                        {
+                                            int indexToRemove = -1;
+                                            foreach (Dier dier in dieren)
+                                                if (dier.Naam == dierToDelete) indexToRemove = dieren.IndexOf(dier);
+                                            if (indexToRemove != -1) dieren.RemoveAt(indexToRemove);
+                                        }
+                                    }
+                                }break;
+                            case 2:
+                                {
+                                    List<int> gewicht = new List<int>();
+                                    foreach (Dier dier in dieren)
+                                        if (dier.Gewicht != 0) gewicht.Add(dier.Gewicht);
+                                    Console.WriteLine("Gemiddeld gewicht van al de dieren: " + gewicht.Average());
+                                }
+                                break;
+                            case 3:
+                                {
+                                    foreach (Dier dier in dieren)
+                                    {
+                                        Console.Write(dier.Naam + " zegt ");
+                                        dier.Zegt();
+                                    }
+                                }
+                                break;
+                            case 4:
+                                {
+                                    opnieuw = false;
+                                    dieren = new List<Dier>();
+                                }
+                                break;
+                            case 5:
+                                {
+                                    opnieuw = false;
+                                    exit = true;
+                                }
+                                break;
+                            default:
+                                {
+
+                                }
+                                break;
+                        }
+                    }
+                    
+                }
+
+
                 Console.ReadKey();
             }
 
@@ -326,7 +578,5 @@ namespace OverErvingOefeningen
                 return double.Parse(Console.ReadLine());
             }
         }
-
-        
     }
 }

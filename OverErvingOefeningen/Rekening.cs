@@ -116,7 +116,7 @@ namespace OverErvingOefeningen
 
     class DebitRekening : Rekening
     {
-        public override TypeRekening Type { get => base.Type; set => base.Type = TypeRekening.Debitrekening; } // default waarde werkt niet
+        public override TypeRekening Type { get => base.Type; set => base.Type = value; } // default waarde werkt niet
         public DebitRekening(int bedrag, string naam = "geen", string rekenNr = "")
         {
             Saldo = bedrag;
@@ -131,7 +131,7 @@ namespace OverErvingOefeningen
     }
     class CreditRekening : Rekening
     {
-        public override TypeRekening Type { get => base.Type; set => base.Type = TypeRekening.Creditrekening; }
+        public override TypeRekening Type { get => base.Type; set => base.Type = value; }
         public string extraNr;
         public override string RekeningNr { get => base.RekeningNr; set => base.RekeningNr = value + extraNr; }
         public CreditRekening(int bedrag, string extraNr, string naam = "geen", string rekenNr = "")
@@ -149,7 +149,7 @@ namespace OverErvingOefeningen
     }
     class SpaarRekening : Rekening
     {
-        public override TypeRekening Type { get => base.Type; set => base.Type = TypeRekening.Spaarrekening; }
+        public override TypeRekening Type { get => base.Type; set => base.Type = value; }
 
         public SpaarRekening(int bedrag, string naam = "geen", string rekenNr = "")
         {
