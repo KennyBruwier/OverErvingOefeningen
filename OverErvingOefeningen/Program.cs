@@ -10,18 +10,59 @@ namespace OverErvingOefeningen
     {
         static void Main(string[] args)
         {
-            //string[] Oefeningen = ne
-            
-            Dierentuin();
+            List<string> Oefeningen = new List<string>();
 
+            //string[] Oefeningen = ne
+            Oefeningen = new List<string>();
+            Oefeningen.Add("Exit");
+            Oefeningen.Add("Ziekenhuis");
+            Oefeningen.Add("Dierentuin");
+            Oefeningen.Add("Bookmark Manager");
+            Oefeningen.Add("Bank");
+            Oefeningen.Add("Pokemon");
+            Oefeningen.Add("Bookmark Manager Extra");
+            Oefeningen.Add("Book");
+            Oefeningen.Add("Pokemon");
+            Oefeningen.Add("MoneyMoney");
+            Oefeningen.Add("GeometricFigures");
+            Oefeningen.Add("Dierentuin");
+            bool bExit = false;
+            while (!bExit)
+            {
+                switch (SelectMenu(true,Oefeningen.ToArray())-1)
+                {
+                    case 0: bExit = true; break;
+                    case 1: Ziekenhuis(); break;
+                    case 2: Dierentuin(); break;
+                    case 3: BookmarkManagar(); break;
+                    case 4: Bank(); break;
+                    case 5: Pokemon(); break;
+                    case 6: BookMarkExtra(); break;
+                    case 7: Book(); break;
+                    case 8: Pokemon(); break;
+                    case 9: MoneyMoney(); break;
+                    case 10: GeometricFigures(); break;
+                    case 11: Dierentuin(); break;
+                    //case 5: Pokemon(); break;
+                    //case 5: Pokemon(); break;
+                    //case 5: Pokemon(); break;
+                    default:
+                        break;
+                }
+            }
+
+            
+
+            
             Console.ReadLine();
 
 
             void Ziekenhuis()
             {
+                Console.Clear();
                 Patient patient = new Patient();
                 VerzekerdePatient verzekerdePatient = new VerzekerdePatient();
-
+                
                 patient.Naam = "niet verzekerde patient";
                 patient.AantalUren = 100;
                 patient.ToonInfo();
@@ -29,10 +70,13 @@ namespace OverErvingOefeningen
                 verzekerdePatient.Naam = "verzekerde patient";
                 verzekerdePatient.AantalUren = 100;
                 verzekerdePatient.ToonInfo();
+                Console.ReadKey();
             }
 
             void BookmarkManagar()
             {
+                Console.Clear();
+
                 List<HiddenBookmark> bookmarks = new List<HiddenBookmark>();
                 bool exit = false;
 
@@ -109,6 +153,7 @@ namespace OverErvingOefeningen
 
             void Bank()
             {
+                Console.Clear();
                 bool exit = false;
                 List<Rekening> rekeningen = new List<Rekening>();
                 rekeningen.Add(new DebitRekening(10000, "Kenny", "1221 5456 5465 5466"));
@@ -205,6 +250,8 @@ namespace OverErvingOefeningen
 
             void Pokemon()
             {
+                Console.Clear();
+
                 Pokemon[] mijnPokemons = new Pokemon[10];
 
                 for (int i = 0; i < mijnPokemons.GetLength(0); i++)
@@ -260,11 +307,14 @@ namespace OverErvingOefeningen
                         Console.WriteLine(mijnPokemons[i].ToString());
                     }
                 }
+                Console.ReadKey();
 
             }
 
             void BookMarkExtra()
             {
+                Console.Clear();
+
                 HiddenBookmark hbm = new HiddenBookmark();
                 hbm.Naam = "Google";
                 hbm.URL = "www.google.be";
@@ -274,10 +324,14 @@ namespace OverErvingOefeningen
 
                 Console.WriteLine(hbm);
                 Console.WriteLine(bm);
+                Console.ReadKey();
+
             }
-            
+
             void Book()
             {
+                Console.Clear();
+
                 Book boek = new Book();
                 boek.Title = "The Shining";
                 boek.Author = "Stephen King";
@@ -305,11 +359,14 @@ namespace OverErvingOefeningen
                 Console.WriteLine(coffeeTableBook);
                 Console.WriteLine("boek.Equals(textbook) = ");
                 Console.Write(boek.Equals(textbook));
+                Console.ReadKey();
 
             }
 
             void MoneyMoney()
             {
+                Console.Clear();
+
                 mRekening bankRekening = new mBankRekening(500);
                 mRekening spaarRekening = new mSpaarRekening(10000);
                 mRekening proRekening = new mProRekening(10000);
@@ -317,11 +374,14 @@ namespace OverErvingOefeningen
                 Console.WriteLine($"Bank rekening\tsaldo: {bankRekening.Saldo}\trente: {bankRekening.BerekenRente()}");
                 Console.WriteLine($"Spaar rekening\tsaldo: {spaarRekening.Saldo}\trente: {spaarRekening.BerekenRente()}");
                 Console.WriteLine($"Pro rekening\tsaldo: {proRekening.Saldo}\trente: {proRekening.BerekenRente()}");
+                Console.ReadKey();
 
             }
 
             void GeometricFigures()
             {
+                Console.Clear();
+
                 int hoogte = 10;
                 int breedte = 5;
                 GeometricFigure rechthoek = new Rechthoek(hoogte, breedte);
@@ -334,11 +394,13 @@ namespace OverErvingOefeningen
                 Console.WriteLine("Vierkant met één parameter: " + vierkant.BerekenOppervlakte());
                 Console.WriteLine("Vierkant met twee verschillende parameters: " + vierkant2.BerekenOppervlakte());
                 Console.WriteLine("Driehoek: " + driehoek.BerekenOppervlakte());
+                Console.ReadKey();
 
             }
 
             void Dierentuin()
             {
+
                 bool exit = false;
                 string[] dierenNamen = { "Kat", "Hond", "Vis", "Koe", "q" };
                 List<Dier> dieren = new List<Dier>();
@@ -379,6 +441,7 @@ namespace OverErvingOefeningen
                             dieren.Add(nieuwDier);
                         }
                     }
+                    
                     bool opnieuw = true;
                     while (opnieuw)
                     {
@@ -396,8 +459,7 @@ namespace OverErvingOefeningen
                                         List<string> dierNamen = new List<string>();
                                         foreach (Dier dier in dieren)
                                         {
-                                            dier.Naam = null;
-                                            if ((dier.Naam != "") && (dier.Naam != null))
+                                            if ((dier.Naam != null) && (dier.Naam != ""))
                                                 dierNamen.Add(dier.Naam);
                                         }
                                         dierNamen.Add("Exit");
@@ -417,7 +479,7 @@ namespace OverErvingOefeningen
                                     List<int> gewicht = new List<int>();
                                     foreach (Dier dier in dieren)
                                         if (dier.Gewicht != 0) gewicht.Add(dier.Gewicht);
-                                    Console.WriteLine("Gemiddeld gewicht van al de dieren: " + gewicht.Average());
+                                    Console.WriteLine("Gemiddeld gewicht van al de dieren: " + Math.Round(gewicht.Average(),1));
                                 }
                                 break;
                             case 3:
@@ -442,9 +504,6 @@ namespace OverErvingOefeningen
                                 }
                                 break;
                             default:
-                                {
-
-                                }
                                 break;
                         }
                     }
