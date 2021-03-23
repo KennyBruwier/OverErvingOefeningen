@@ -16,33 +16,31 @@ namespace OverErvingOefeningen
             Oefeningen = new List<string>();
             Oefeningen.Add("Exit");
             Oefeningen.Add("Ziekenhuis");
-            Oefeningen.Add("Dierentuin");
             Oefeningen.Add("Bookmark Manager");
             Oefeningen.Add("Bank");
-            Oefeningen.Add("Pokemon");
-            Oefeningen.Add("Bookmark Manager Extra");
-            Oefeningen.Add("Book");
-            Oefeningen.Add("Pokemon");
-            Oefeningen.Add("MoneyMoney");
-            Oefeningen.Add("GeometricFigures");
-            Oefeningen.Add("Dierentuin");
+            Oefeningen.Add("Pokemon (advanced)");
+            Oefeningen.Add("Bookmark Manager (advanced)");
+            Oefeningen.Add("Book (advanced)");
+            Oefeningen.Add("MoneyMoney (advanced)");
+            Oefeningen.Add("GeometricFigures (advanced)");
+            Oefeningen.Add("Dierentuin (advanced)");
             bool bExit = false;
             while (!bExit)
             {
-                switch (SelectMenu(true,Oefeningen.ToArray())-1)
+                Console.Clear();
+                Console.WriteLine("Overerving oefeningen:\n");
+                switch (SelectMenu(false,Oefeningen.ToArray())-1)
                 {
                     case 0: bExit = true; break;
                     case 1: Ziekenhuis(); break;
-                    case 2: Dierentuin(); break;
-                    case 3: BookmarkManagar(); break;
-                    case 4: Bank(); break;
-                    case 5: Pokemon(); break;
-                    case 6: BookMarkExtra(); break;
-                    case 7: Book(); break;
-                    case 8: Pokemon(); break;
-                    case 9: MoneyMoney(); break;
-                    case 10: GeometricFigures(); break;
-                    case 11: Dierentuin(); break;
+                    case 2: BookmarkManagar(); break;
+                    case 3: Bank(); break;
+                    case 4: Pokemon(); break;
+                    case 5: BookMarkExtra(); break;
+                    case 6: Book(); break;
+                    case 7: MoneyMoney(); break;
+                    case 8: GeometricFigures(); break;
+                    case 9: Dierentuin(); break;
                     //case 5: Pokemon(); break;
                     //case 5: Pokemon(); break;
                     //case 5: Pokemon(); break;
@@ -50,12 +48,6 @@ namespace OverErvingOefeningen
                         break;
                 }
             }
-
-            
-
-            
-            Console.ReadLine();
-
 
             void Ziekenhuis()
             {
