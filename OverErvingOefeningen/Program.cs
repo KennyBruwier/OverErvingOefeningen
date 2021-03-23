@@ -10,6 +10,8 @@ namespace OverErvingOefeningen
     {
         static void Main(string[] args)
         {
+            //string[] Oefeningen = ne
+            
             Dierentuin();
 
             Console.ReadLine();
@@ -394,6 +396,7 @@ namespace OverErvingOefeningen
                                         List<string> dierNamen = new List<string>();
                                         foreach (Dier dier in dieren)
                                         {
+                                            dier.Naam = null;
                                             if ((dier.Naam != "") && (dier.Naam != null))
                                                 dierNamen.Add(dier.Naam);
                                         }
@@ -577,6 +580,13 @@ namespace OverErvingOefeningen
                 Console.Write(tekst);
                 return double.Parse(Console.ReadLine());
             }
+
+            //static int ToonMenuEnum(Enum aEnum, int x = -1, int y = -1, int beginIndex = 0, ConsoleKey aVerlatenKey = ConsoleKey.Escape)
+            //{
+            //    string[] tmpArr = Enum.GetNames(aEnum.GetType());
+
+            //    return ToonMenu(tmpArr, x, y, beginIndex, aVerlatenKey);
+            //}
         }
     }
 }
